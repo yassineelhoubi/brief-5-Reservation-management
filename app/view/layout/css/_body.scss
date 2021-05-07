@@ -1,0 +1,20 @@
+body {
+    padding-top: 4.5rem;
+    background-color:#F2F2F2 ;
+    /* color: #D9CAB8; */
+    button {
+        background-color:#F2F2F2 ;
+        border: 1px solid ;
+        border-radius: 5px;
+        padding: 8px 20px;
+        /* color: white; */
+        transition:  1s ;
+        &:hover{
+            background-color: #D9CAB8;
+            
+        }
+    }
+}
+.heading-body{
+    font-family: serif;
+}

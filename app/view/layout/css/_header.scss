@@ -1,0 +1,26 @@
+.navbar {
+    background-color: rgba(0, 0, 0, 0.9);
+position: fixed;
+z-index: 100;
+width: 100%;
+    .logo {
+        width: 50px;
+    }
+
+    .nav-content {
+        justify-content: flex-end;
+        font-size: 20px;
+
+    }
+
+
+    .sign-in {
+        justify-content: flex-end;
+
+
+        .sign-in-icon {
+            color: white;
+            font-size: 20px;
+        }
+    }
+}
