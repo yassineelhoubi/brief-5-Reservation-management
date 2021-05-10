@@ -21,18 +21,26 @@
     </section>
 
     <!-- Section: Social media -->
+
+    <!-- sign up -->
+    <?php
+	  if(!isset ($_SESSION['email'])) {    
+	  ?>
     <section class="sign-up">
       <p class="d-flex justify-content-center align-items-center">
         <span class="m-3">Register Now</span>
         <a href="signup.php"><button type="button" class="btn btn-outline-light rounded-pill">Sign up</button>
-              
+
 
 
         </a>
       </p>
     </section>
+    <?php
+    }
+    ?>
   </div>
-  <!-- Grid container -->
+  
 
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">

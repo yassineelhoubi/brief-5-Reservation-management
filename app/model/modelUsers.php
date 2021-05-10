@@ -55,15 +55,22 @@ class modelUsers {
         $row            =   $selectUser->fetch(PDO::FETCH_ASSOC);
         $passworddb     =   $row['password'];
         $role           =   $row['role'];
-/*         $selectiduser   =   $row['id'];
-        $select */
+        $selectiduser   =   $row['id'];
 
         if($passworddb == $hashed_password && $role == 'admin'){
-            $_SESSION['role']   = $row['role'];
-            $_SESSION['Fname'] = $row['Fname'];
-            $_SESSION['Lname'] = $row['Lname'];
+            $_SESSION['email']  = $this->email;
+            $_SESSION['role']   = $role;
+
             header("location:../view/adm-dashboard.php");
         }else if($passworddb == $hashed_password && $role == 'customer'){
+            
+            $_SESSION['email']  = $this->email;
+            $_SESSION['role']   = $role;
+            $selectCustmor      = $this->conn->prepare("SELECT * FROM customer WHERE idCustomer = $selectiduser");
+            $selectCustmor->execute();
+            $row                =   $selectCustmor->fetch(PDO::FETCH_ASSOC);
+            $_SESSION['Fname']  = $row['Fname'];
+            $_SESSION['Lname']  = $row['Lname'];
             header("location:../view/Booking.php");
 
 
@@ -71,5 +78,14 @@ class modelUsers {
             header("location:../view/authentification.php");
         }
     }
+/*     public function logout(){
+	session_start();
+	session_unset();
+	session_destroy();
+
+	header("location:../view/authentification.php");
+	exit();
+    } */
+
 
 }

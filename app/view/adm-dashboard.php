@@ -1,5 +1,10 @@
 <?php
- include "includes/templates/header-inc.php";
+	session_start();
+	if(!isset ($_SESSION['email'])  || ($_SESSION["role"]) !== 'admin') {
+		header("location:authentification.php");
+        
+	}
+    include "includes/templates/header-adm.php";
  ?>
 <!-- index body -->
 <center><h1 class="heading-body m-4">Our Reservations</h1></center>

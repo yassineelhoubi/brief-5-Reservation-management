@@ -1,4 +1,9 @@
 <?php
+
+session_start();
+if(isset ($_SESSION['email'])  ) {
+  header("location:index.php"); 
+}
  include "includes/templates/header-inc.php";
  include "../model/modelUsers.php";
 
@@ -30,7 +35,7 @@
   </div>
 
   <button name='register' type="submit" class="btn btn-primary">Submit</button>
-  <div class="form-text">Don't have account?<a href="#"> Signup Now</a></div>
+  <div class="form-text">already have an account ?<a href="authentification.php"> sign in</a></div>
 </form>
 </div>
 <hr class="m-5">

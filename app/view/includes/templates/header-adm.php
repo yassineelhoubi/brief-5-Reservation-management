@@ -27,12 +27,14 @@
                 <a class="nav-link " href="index.php">Home </a>
                 <a class="nav-link" href="booking.php">Booking</a>
                 <a class="nav-link" href="contact-us.php">Offers</a>
+                <a class="nav-link" href="adm-dashboard.php">Dashboard</a>
+            </div>
+            
+        </div>
+<div class="collapse navbar-collapse nav-content sign-in" id="navbarNavAltMarkup">
+    <h5>"Admin"</h5>
+    <a href="../../../app/controller/logout.php" ><i class="fas fa-sign-in-alt sign-in-icon"></i></a>
             </div>
 
-        </div>
-        <div class="collapse navbar-collapse nav-content sign-in" id="navbarNavAltMarkup">
-            <a href="authentification.php"><i class="fas fa-sign-in-alt sign-in-icon"></i></a>
-
-        </div>
-
     </nav>
+ 

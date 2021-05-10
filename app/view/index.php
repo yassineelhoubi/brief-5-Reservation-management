@@ -1,5 +1,16 @@
 <?php
- include "includes/templates/header-inc.php";
+	session_start();
+	if(!isset ($_SESSION['email'])  ) {
+        include "includes/templates/header-inc.php";
+        
+	}
+    else if (isset ($_SESSION['email'])  && ($_SESSION["role"]) == 'customer' ){
+        include "includes/templates/header-con.php";
+    } 
+    else if (isset ($_SESSION['email'])   && ($_SESSION["role"]) == 'admin' ){
+        include "includes/templates/header-adm.php";
+    }
+         
  ?>
 <!-- index body -->
 

@@ -1,7 +1,13 @@
 <?php
- include "includes/templates/header-inc.php";
- /* include "../model/conn.php";
- $obj = new connection(); */
+	session_start();
+	if(!isset ($_SESSION['email']) ) {
+		header("location:authentification.php");
+	}else if (isset ($_SESSION['email'])  && ($_SESSION["role"]) == 'customer' ){
+        include "includes/templates/header-con.php";
+    } 
+    else {
+        include "includes/templates/header-adm.php";
+    }
  ?>
 <!-- index body -->
 <div class="card shadow mb-5 mt-5 bg-white rounded">
@@ -22,16 +28,15 @@
 
         <!-- property -->
         <div class="row mt-4">
-            <div class="col-sm-11">
-                <select class="browser-default custom-select mb-4" id="property" onchange="select_property()">
+            <div class="col-sm-12 ">
+                <select class="browser-default custom-select mb-4 dom" id="property" onchange="select_property()">
                     <option value="" disabled="" selected="">Property</option>
                     <option value="hotel">Hotel</option>
-                    <option value="bungolw">Bangalow</option>
+                    <option value="bangalow">Bangalow</option>
                     <option value="appartements">Apartments</option>
-
                 </select>
             </div>
-            <div class="col-sm-1"> <i class="fas fa-plus" onclick="addProperty()"></i></div>
+            
         </div>
 
         <!--Hotel-->
@@ -53,8 +58,11 @@
             <div class="col-12" id="pension"></div>
         </div>
         <!--  -->
-
-
+       
+        <button  onclick="booking()">Valid</button>
+        <button onclick="booking()" ><i class="fas fa-plus" ></i></button>
+         
+       
     </div>
 </div>
 
