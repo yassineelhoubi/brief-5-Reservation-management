@@ -25,30 +25,67 @@ CREATE TABLE Property (
     idProperty int AUTO_INCREMENT PRIMARY KEY ,
     name VARCHAR (55),
     type VARCHAR (255) NULL,
-     view VARCHAR (255) NULL 
+    bedtype VARCHAR (255) NULL,
+    view VARCHAR (255) NULL,
+    price int(24)  
 );
-DROP table Tarifs;
-CREATE table Tarifs(
-    idProperty int PRIMARY KEY ,
-    price int ,
-    FOREIGN key (idProperty) REFERENCES Property(idProperty)
-);
-DROP TABLE Pension;
-CREATE TABLE Pension(
-    idPension int AUTO_INCREMENT PRIMARY KEY ,
-    type VARCHAR (55),
-    demitype VARCHAR (55),
-    price int
-);
+
 DROP TABLE Reservation;
 CREATE TABLE Reservation(
-    id int PRIMARY KEY AUTO_INCREMENT ,
+    idReservation int PRIMARY KEY AUTO_INCREMENT ,
+    idCustomer INT ,
+    dateReservation DATE ,
     checkIn DATE ,
     chekOut DATE ,
-    idProperty INT ,
-    idCustomer INT ,
-    idPension INT ,
-    FOREIGN KEY (idProperty) REFERENCES Property(idProperty),
-    FOREIGN KEY (idCustomer) REFERENCES Customer(idCustomer),
-    FOREIGN KEY (idPension) REFERENCES Pension(idPension)
+    FOREIGN KEY (idCustomer) REFERENCES Customer(idCustomer)
+
 );
+DROP TABLE services;
+CREATE TABLE services(
+    idServices INT PRIMARY KEY AUTO_INCREMENT ,
+    idProperty  INT ,
+    idReservation INT,
+    FOREIGN KEY (idProperty) REFERENCES property(idProperty)
+
+);
+DROP TABLE Bill;
+CREATE TABLE Bill(
+    idReservation int PRIMARY KEY  ,
+    totalPrice int ,
+    nbrOfDays int ,
+    finalPrice int ,
+    FOREIGN KEY (idReservation) REFERENCES reservation(idReservation)
+);
+/* INSERT property */
+
+INSERT INTO property (`name`, `type`, `bedtype`, `view`, `price`) VALUES
+/* bangalow */
+('bangalow',NULL, NULL, NULL , 700) ,
+/* appartemnets */
+('appartements',NULL, NULL, NULL , 500) ,
+/* Single Room */
+('hotel','single room',NULL,'interior view' , 300),
+('hotel','single room',NULL,'exterior view' , 360),
+/* Double Room */
+('hotel','double room','double bed','interior view' , 400),
+('hotel','double room','double bed','exterior view' , 480),
+('hotel','double room','2 Single Beds','interior view' , 400),
+/* Offers Of Child */
+('hotel','no supplement child bed 0 DH',NULL,NULL , 0),
+('hotel','child bed supplement 25% single room',NULL,NULL , 75),
+('hotel','add 50% single room',NULL,NULL , 150),
+('hotel','add a single room',NULL,NULL , 300),
+('hotel','add 70% single room + bed',NULL,NULL , 210);
+
+
+INSERT INTO property (`name`, `type`, `bedtype`, `view`, `price`) VALUES 
+('pension','complete',NULL,NULL,500),
+('pension','Breakfast / Lunch',NULL,NULL,300),
+('pension','Breakfast / Dinner',NULL,NULL,350),
+('pension','without',NULL,NULL,0);
+
+
+
+
+
+        

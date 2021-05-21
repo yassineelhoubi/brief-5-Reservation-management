@@ -26,7 +26,7 @@
             <div class="navbar-nav">
                 <a class="nav-link " href="index.php">Home </a>
                 <a class="nav-link" href="booking.php">Booking</a>
-                <a class="nav-link" href="contact-us.php">Offers</a>
+                <a class="nav-link" href="#">Offers</a>
                 <a class="nav-link" href="adm-dashboard.php">Dashboard</a>
             </div>
             

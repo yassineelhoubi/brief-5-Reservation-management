@@ -7,9 +7,7 @@
         "_footer.scss",
         "_index.scss",
         "_body.scss",
-        "_adm-dashboard.scss",
-        "_authentification.scss",
-        "_signup.scss"
+        "_adm-dashboard.scss"
     ],
     "names": [],
     "file": "style.css"
