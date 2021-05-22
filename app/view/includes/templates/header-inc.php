@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="hotel guesthouse reservation website">
+    <meta name="keywords" content="hotel, booking, reservation , guest house , room , appartments , bungalow , pension">
     <title>Document</title>
     <link rel="stylesheet" href="layout/css/all.min.css">
     <link rel="stylesheet" href="layout/css/bootstrap.min.css">

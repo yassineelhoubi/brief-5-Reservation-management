@@ -24,7 +24,7 @@
     </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="./layout/img/slider-1.jpg" class="d-block w-100" alt="...">
+            <img src="./layout/img/slider-1.jpg" class="d-block w-100" alt="room">
             <div class="carousel-caption  d-md-block ">
                 <h6>Hotel &amp; Resort</h6>
                 <h2>Welcome To Roberto</h2>
@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img src="./layout/img/slider-2.jpg" class="d-block w-100" alt="...">
+            <img src="./layout/img/slider-2.jpg" class="d-block w-100" alt="room">
             <div class="carousel-caption  d-md-block">
                 <h6>Hotel &amp; Resort</h6>
                 <h2>Welcome To Roberto</h2>
@@ -40,7 +40,7 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img src="./layout/img/slider-3.jpg" class="d-block w-100" alt="...">
+            <img src="./layout/img/slider-3.jpg" class="d-block w-100" alt="room">
             <div class="carousel-caption  d-md-block">
                 <h6>Hotel &amp; Resort</h6>
                 <h2>Welcome To Roberto</h2>
@@ -81,9 +81,9 @@
             </div>
         </div>
         <div class="col-lg-6 col-md-12 grid-img ">
-            <img class="rounded" src="./layout/img/1.jpg">
-            <img class="rounded" src="./layout/img/5.jpg">
-            <img class="rounded" src="./layout/img/9.jpg">
+            <img class="rounded" src="./layout/img/1.jpg" alt="room">
+            <img class="rounded" src="./layout/img/5.jpg" alt="pool">
+            <img class="rounded" src="./layout/img/9.jpg" alt="room">
 
         </div>
     </div>
@@ -107,9 +107,9 @@
             </div>
         </div>
         <div class="col-lg-6 col-md-12 grid-img rounded">
-            <img class="rounded" src="./layout/img/petit-dej.jpg">
-            <img class="rounded" src="./layout/img/restaurant-hotel.jpg">
-            <img class="rounded" src="./layout/img/6.jpg">
+            <img class="rounded" src="./layout/img/petit-dej.jpg"  alt="pension">
+            <img class="rounded" src="./layout/img/restaurant-hotel.jpg" alt="pension">
+            <img class="rounded" src="./layout/img/6.jpg" alt="pension">
 
         </div>
     </div>
