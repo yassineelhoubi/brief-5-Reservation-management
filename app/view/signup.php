@@ -5,7 +5,7 @@ if(isset ($_SESSION['email'])  ) {
   header("location:index.php"); 
 }
  include "includes/templates/header-inc.php";
- include "../model/modelUsers.php";
+//  include "../model/modelUsers.php";
 
  ?>
 <!-- index body -->

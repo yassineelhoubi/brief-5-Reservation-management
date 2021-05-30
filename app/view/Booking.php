@@ -48,7 +48,7 @@
 
                 <div class="row nbrOfroom mr-1" style="display:none">
                     <div class="col-8   ">
-                        <input class="browser-default custom-select " type="number" placeholder="number of Room"
+                        <input class="browser-default custom-select " min=1 type="number" placeholder="number of Room"
                             id="addRoom">
                     </div>
                     <button id="addRoom-btn" required type="button" class="col-4 ">add Room</button>
@@ -69,8 +69,8 @@
                         <input  name="adults" placeholder="Adults" type="number" class="form-control datepicker mb-4 ">
                     </div>
                     <div class="col-sm-6">
-                        <input name="children" id='nbr_child' placeholder="Number of Children" type="number"
-                            class="form-control datepicker mb-4 " onkeyup="childs_input()" onchange="childs_input()">
+                        <input name="children" id='nbr_child' placeholder="Number of Children " type="number"
+                            class="form-control datepicker mb-4 " min=0 max=6 onkeyup="if(this.value>6)this.value=null;" oninput="childs_input()" >
                     </div>
                 </div>
                 <!-- offers of child -->

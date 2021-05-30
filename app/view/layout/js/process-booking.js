@@ -1,24 +1,48 @@
 /* property */
 const addRoom = document.getElementById('addRoom');
 
-const btnaddRoom    =   document.getElementById('addRoom-btn');
+const btnaddRoom = document.getElementById('addRoom-btn');
 
 const hoteldiv = document.getElementById('hotel-div')
 
-const nbrOfroom   =   document.querySelector('.nbrOfroom');
+const nbrOfroom = document.querySelector('.nbrOfroom');
+
+/* propertys */
+function select_property() {
+
+    var property = document.getElementById('property').value;
+    console.log(property);
+
+    if (property == "hotel") {
+
+        nbrOfroom.style.display = "flex"
 
 
+    } else {
+        nbrOfroom.style.display = "none"
+
+        document.getElementById('hotel-div').innerHTML = ``
+
+        document.getElementById('child_select').innerHTML = ``
+
+        document.getElementById('title-persons').style.display = 'none'
+        document.getElementById('persons').style.display = 'none'
+
+    }
+}
+
+/* Hotel */
 let i = 1;
-btnaddRoom.addEventListener('click',function(){
-    document.getElementById('title-persons').style.display='block'
+btnaddRoom.addEventListener('click', function () {
+    document.getElementById('title-persons').style.display = 'block'
     document.getElementById('persons').style.display = 'flex'
 })
 btnaddRoom.addEventListener('click', function () {
     nbrRoom = addRoom.value
-    hoteldiv.innerHTML =``
-    for(i=1 ; i<=nbrRoom ; i++){
-        
-    hoteldiv.innerHTML += `
+    hoteldiv.innerHTML = ``
+    for (i = 1; i <= nbrRoom; i++) {
+
+        hoteldiv.innerHTML += `
             <!-- Room -->
 
             <div class="col-12 mt-3" id="title-room">
@@ -60,32 +84,10 @@ btnaddRoom.addEventListener('click', function () {
                 </select>
             </div>
     `
-}
-    
+    }
+
 })
 
-function select_property() {
- 
-    var property = document.getElementById('property').value;
-    console.log(property);
-
-    if (property == "hotel") {
-
-        nbrOfroom.style.display="flex"
-
-
-    }else {
-        nbrOfroom.style.display="none"
-
-        document.getElementById('hotel-div').innerHTML =``
-        
-        document.getElementById('child_select').innerHTML = ``
-
-        document.getElementById('title-persons').style.display='none'
-        document.getElementById('persons').style.display = 'none'
-
-    }
-}
 
 /* Room Type */
 document.addEventListener('change', (e) => {
@@ -115,7 +117,7 @@ document.addEventListener('change', (e) => {
 /* Room Type view if target Double Room  */
 document.addEventListener('change', (e) => {
     for (let j = 1; j <= i; j++) {
-        if (e.target.id == `bed-type${j}`  && e.target.value == 'double bed') {
+        if (e.target.id == `bed-type${j}` && e.target.value == 'double bed') {
             document.getElementById(`view-type${j}`).innerHTML = `<div >
             <select required class="browser-default custom-select mb-4 dom" id="select" name="room[${j}][viewtype]">
             <option value="" disabled="" selected="">View</option>
@@ -136,10 +138,13 @@ document.addEventListener('change', (e) => {
 /* list for age of child */
 function childs_input() {
     const nbr_child = document.getElementById('nbr_child').value;
+    if (nbr_child >= 7) {
+        document.querySelector('#child_select').innerHTML = ``;
 
-    document.querySelector('#child_select').innerHTML = ``;
-    for (i = 1; i <= nbr_child; i++) {
-        document.querySelector('#child_select').innerHTML += ` 
+    } else {
+        document.querySelector('#child_select').innerHTML = ``;
+        for (i = 1; i <= nbr_child; i++) {
+            document.querySelector('#child_select').innerHTML += ` 
         <div class=" col-12 child-offer">
             
                 <select required class="col-sm-5 m-3 select-age browser-default custom-select " name="" id="child-age-` + i + `"  >
@@ -156,6 +161,7 @@ function childs_input() {
         </div>`
 
 
+        }
     }
 }
 /*  */
@@ -192,11 +198,11 @@ document.addEventListener("change", function (e) {
 
     }
 })
-let x=2;
+let x = 2;
 /* add property */
-function addProperty(){
-   
-    document.getElementById('divProperty').innerHTML +=`
+function addProperty() {
+
+    document.getElementById('divProperty').innerHTML += `
     <div class="row mt-4 mr-1">
     <div class="col-md-11 col-sm-10 col-10  ">
         <select class="browser-default custom-select mb-4 dom" id="property[${x}]" onchange="select_property()" name="typeproperty[${x
@@ -210,8 +216,7 @@ function addProperty(){
         <i class="fas fa-plus"></i>
     </button>
     </div>
-    ` 
+    `
     x++;
 
 }
-
