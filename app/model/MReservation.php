@@ -22,45 +22,75 @@ class reservation {
 
     /* Insert Room In Services Table */
     public function insertRoom($array,$idreservation){
-        foreach($array as $key =>$value){    
+        try{
+            $this->conn->beginTransaction();
+            foreach($array as $value){    
                 $sql    =   "INSERT INTO `services`(`idProperty`, `idReservation`) VALUES ((select IdProperty from Property where type = '$value[Roomtype]' and (bedtype= '$value[bedtype]' or bedtype is Null ) and view= '$value[viewtype]' ),?)";
                 $stmt   =   $this->conn->prepare($sql);
                 $stmt->execute([$idreservation]); 
+            }
+            $this->conn->commit();
+        }catch(Exception $e){
+            $this->conn->rollBack();
+            echo "Failed: " . $e->getMessage();
         }
+ 
+
     }
 
     /* Insert Pension In services Table */
     public function insertPension($array,$idreservation){
-        foreach($array as $key => $value){
-            $sql    =   "INSERT INTO services (`idProperty`, `idReservation`) VALUES (?,?)";
-            $stmt   =   $this->conn->prepare($sql);
-            $stmt->execute([$value['idpension'],$idreservation]);
+        try{
+            $this->conn->beginTransaction();
+            foreach($array as $value){
+                $sql    =   "INSERT INTO services (`idProperty`, `idReservation`) VALUES (?,?)";
+                $stmt   =   $this->conn->prepare($sql);
+                $stmt->execute([$value['idpension'],$idreservation]);
+            }
+            $this->conn->commit();
+        }catch(Exception $e){
+            $this->conn->rollBack();
+            echo "Failed: " . $e->getMessage();
         }
     }
 
     /* Insert Bungalow Or Apart In Services Table */
     public function insertBungalowOrApart($array,$idreservation){
-        foreach($array as $key => $value){
-            if ($value['type'] == 'bungalow'){
-                /* The Id Of Property Bungalow In Database Is " 5 " */
-                $sql    =   "INSERT INTO services (`idProperty`, `idReservation`) VALUES (5,?)";
-                $stmt   =   $this->conn->prepare($sql);
-                $stmt->execute([$idreservation]); 
-            } else if ($value['type'] == 'apartments'){
-                /* The Id Of Property Apartments In Database Is " 6 " */
-                $sql    =   "INSERT INTO services (`idProperty`, `idReservation`) VALUES (6,?)";
-                $stmt   =   $this->conn->prepare($sql);
-                $stmt->execute([$idreservation]);
+        try{
+            $this->conn->beginTransaction();
+            foreach($array as $value){
+                if ($value['type'] == 'bungalow'){
+                    /* The Id Of Property Bungalow In Database Is " 5 " */
+                    $sql    =   "INSERT INTO services (`idProperty`, `idReservation`) VALUES (5,?)";
+                    $stmt   =   $this->conn->prepare($sql);
+                    $stmt->execute([$idreservation]); 
+                } else if ($value['type'] == 'apartments'){
+                    /* The Id Of Property Apartments In Database Is " 6 " */
+                    $sql    =   "INSERT INTO services (`idProperty`, `idReservation`) VALUES (6,?)";
+                    $stmt   =   $this->conn->prepare($sql);
+                    $stmt->execute([$idreservation]);
+                }
             }
+            $this->conn->commit();
+        }catch(Exception $e){
+            $this->conn->rollBack();
+            echo "Failed: " . $e->getMessage();
         }
     }
 
     /* Insert Property Of Children In Services Table */
     public function insertOffersChild($array,$idreservation){
-        foreach($array as $key => $value){
-            $sql    =   "INSERT INTO services (`idProperty`, `idReservation`) VALUES (?,?)";
-            $stmt   =   $this->conn->prepare($sql);
-            $stmt->execute([$value['idofferschild'],$idreservation]);
+        try{
+            $this->conn->beginTransaction();
+            foreach($array as $value){
+                $sql    =   "INSERT INTO services (`idProperty`, `idReservation`) VALUES (?,?)";
+                $stmt   =   $this->conn->prepare($sql);
+                $stmt->execute([$value['idofferschild'],$idreservation]);
+            }
+            $this->conn->commit();
+        }catch(Exception $e){
+            $this->conn->rollBack();
+            echo "Failed: " . $e->getMessage();
         }
     }
 
