@@ -1,10 +1,21 @@
 <?php
-session_start();
 
-if(isset($_SESSION['role']) == 'admin'){
 include "../model/M-adm-dsh.php";
 $fetch = new fetch();
-$rows = $fetch->fetchReservation();
-echo json_encode($rows);
+
+
+
+if(isset($_GET['fetch-R'])){
+    $rows = $fetch->fetchReservation();
+    echo json_encode($rows);
 
 }
+
+if(isset($_GET['R-info'])){
+    $idReservation = $_GET['R-info'];
+    $data= $fetch->ReservationInfo($idReservation);
+    echo json_encode($data);
+    
+}
+
+

@@ -2,7 +2,7 @@
 include "connection.php";   
 class modelUsers {
 
-
+    private $conn;
     /* connection */
     public function __construct(){
 
@@ -29,7 +29,7 @@ class modelUsers {
             header("location:../view/Booking.php");
               
         } else {  
-            die('error'); 
+            die('this email already exists'); 
         }  
     }
     /* sign in */

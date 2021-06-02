@@ -48,7 +48,7 @@
 
                 <div class="row nbrOfroom mr-1" style="display:none">
                     <div class="col-8   ">
-                        <input class="browser-default custom-select " min=1 type="number" placeholder="number of Room"
+                        <input class="browser-default custom-select " min=1 type="number" placeholder="numbers of Rooms"
                             id="addRoom">
                     </div>
                     <button id="addRoom-btn" required type="button" class="col-4 ">add Room</button>

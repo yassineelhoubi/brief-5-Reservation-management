@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="layout/css/booking.css">
 </head>
 
-<body>
+<body onload = "fetchData()">
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <a class="navbar-brand  " href="index.php">

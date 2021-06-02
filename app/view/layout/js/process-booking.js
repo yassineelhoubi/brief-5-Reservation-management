@@ -172,9 +172,7 @@ document.addEventListener("change", function (e) {
     const nbchild = document.getElementById('nbr_child').value;
 
     for (let i = 1; i <= nbchild; i++) {
-        const idenf = document.getElementById(`child-age-${i}`);
-        // idenf.addEventListener("change", function () {
-        // var interval_age = element.querySelector(".select-age").value
+
         if (e.target.id == `child-age-${i}` && e.target.value == "2") {
             document.querySelector(`#select-offer${i}`).innerHTML = ``
             document.querySelector(`#select-offer${i}`).innerHTML += `
