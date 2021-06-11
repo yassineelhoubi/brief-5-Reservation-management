@@ -8,12 +8,12 @@ if(isset($_POST['reserver'])) {
 
 /* Insert in Reservation Table */
     $idCustomer     =   $_SESSION['id'];
-    $date = time();
-    $dateReservation = date('Y-m-d', $date);
+    
+    $dateReservation = date('Y-m-d');
     $checkin        =   $_POST['checkin'];
     $checkout       =   $_POST['checkout'];
     $idReservation  =   $reservation->insertReservation($idCustomer,$dateReservation,$checkin,$checkout);
-    echo 'id de reservation : '. $idReservation;
+    
 
 /* Insert Room in Services Table */
     $reservation->insertRoom($_POST['room'],$idReservation);
